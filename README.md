@@ -1,13 +1,15 @@
 #swag4k 
 
-Swagger for koa creates a swagger endpoint for your api based on the description provided by you via jsdocs
- 
-swag4k will search through the files you provide for a @swagger title in your jsdocs on the top of the page.
-It will then pull paths via the @resourcePath title and definitions from the @definition title.
- 
+swagger-for-koa creates a swagger endpoint for your api based on the description provided by your jsdocs
+swag4k will search through the files you provide for a @swagger title in your jsdocs which should be on the top of the 
+page you would like swaggerfide. It will then create path objects via the @resourcePath title and definition objects from the @definition title.
+
+In contrast to other swagger-koa implementations, swag4k does not force the user to have a ui bundled into your service, parses javadocs formatTed 
+in json(no yml!), is compatible with joi schemas, and will create a swagger v2 spec.  
 
 ##Usage
 ###inside koa configuration 
+
 ```javascript
 //example invocation of init function with example opts
 const swag4k = require('swagger-for-koa')
@@ -33,6 +35,7 @@ const swag4k = require('swagger-for-koa')
 ```   
 
 ###inside router
+
 ```javascript 1.6
 // example of what a jsdoc should look like in an api file
 const router = require('koa-router')
@@ -56,22 +59,26 @@ const router = require('koa-router')
  * @consumes ["application/json", "application/xml"]
  * @produces ["application/json", "application/xml"]
  * @tags ["pets"]
- * @parameters [{
- *      "in": "body",
- *      "name": "body",
- *      "description": "Pet object that needs to be added to the store",
- *      "required": true,
- *      "schema": {
- *      "$ref": "#/definitions/Pet"
- *      }
- *      }]
+ * @parameters [
+    {
+      "description": "Pet object that needs to be added to the store",
+      "in": "body",
+      "name": "body",
+      "required": true,
+      "schema": {
+        "$ref": "#/definitions/Pet"
+      }
+    }
+  ] 
  * @responses { "405" : {"description": "Invalid input"} }
- * @security [{
- *  	"petstore_auth": [
- *  		"write:pets",
- *  		"read:pets"
- *  	]
- *  }]
+ * @security [
+   {
+     "petstore_auth": [
+       "write:pets",
+       "read:pets"
+     ]
+   }
+ ]
  * @deprecated false
  */
 router.post('/pet', postPet)
@@ -192,7 +199,6 @@ function * deleteByStatus(next) {
  * 	}
  * }
  */
-
 ```
 
 ###Compatible with joi-2-swagger 
