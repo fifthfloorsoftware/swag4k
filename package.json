@@ -16,10 +16,14 @@
     "koa",
     "swagger-ui",
     "swagger for koa",
+    "swagger koa",
     "jsdoc",
     "api",
     "joi",
-    "joi to swagger"
+    "joi to swagger",
+    "documentation",
+    "swagger docs",
+    "docs"
   ],
   "author": "Mike Brennan",
   "contributors": [],
