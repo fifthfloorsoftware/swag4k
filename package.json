@@ -11,6 +11,7 @@
     "build": "npm i && npm run jsdoc && npm run validate",
     "clean": "rm -rf node_modules"
   },
+  "tags": ["swagger", "koa", "swagger-ui", "swagger for koa", "jsdoc", "api", "joi", "joi to swagger"],
   "author": "Mike Brennan",
   "contributors": [],
   "dependencies": {
