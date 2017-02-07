@@ -29,6 +29,7 @@
   "contributors": [],
   "dependencies": {
     "doctrine": "2.0.0",
+    "joi": "^10.2.1",
     "joi-to-swagger": "^1.1.0",
     "koa-router": "5.2.3",
     "lodash": "4.17.4"
@@ -41,7 +42,6 @@
     "joi": "10.2.1",
     "koa": "1.1.2",
     "mocha": "^3.2.0",
-    "lodash": "4.6.0",
     "mock-require": "^2.0.0",
     "request": "^2.79.0",
     "sinon": "^1.17.6",
