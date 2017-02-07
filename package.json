@@ -11,7 +11,7 @@
     "build": "npm i && npm run jsdoc && npm run validate",
     "clean": "rm -rf node_modules"
   },
-  "tags": [
+  "keywords": [
     "swagger",
     "koa",
     "swagger-ui",
