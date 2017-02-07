@@ -10,7 +10,7 @@ in json(no .yml!), is compatible with [joi](https://github.com/hapijs/joi) schem
 
 ```javascript
 //example invocation of init function with example opts; creates endpoint with path /api/public/v1/swagger
-const swag4k = require('swagger-4-koa')
+const swag4k = require('swag4k')
   opts.info = {
     description: 'This is a sample server Petstore server. You can find out more about Swagger at [http://swagger.io](http://swagger.io) or on [irc.freenode.net, #swagger](http://swagger.io/irc/).  For this sample, you can use the api key `special-key` to test the authorization filters.',
     version: '1.0.0',
