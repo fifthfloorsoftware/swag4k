@@ -4,7 +4,7 @@ const swagger = require('../lib/swag')
 const assert = require('chai').assert
 const koa = require('koa')
 const defaults = require('../lib/defaults/defaults')
-const schema = require('./joi_schema')
+const schema = require('./joi-schemas')
 
 describe('test do-swagger', function () {
   let opts
