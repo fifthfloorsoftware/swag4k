@@ -6,7 +6,7 @@ In contrast to other swagger-koa implementations, swag4k does not force the user
 in json(no .yml!), is compatible with [joi](https://github.com/hapijs/joi) schemas, creates a swagger [v2 spec](http://petstore.swagger.io/v2/swagger.json).  
 
 ##Usage
-###inside koa configuration 
+###koa configuration 
 
 ```javascript
 //example invocation of init function with example opts; creates endpoint with path /api/public/v1/swagger
@@ -38,7 +38,7 @@ const swag4k = require('swagger-4-koa')
   swag4k.init(opts, app)  
 ```   
 
-###inside router
+###Router configuration
 
 ```javascript
 // example of what a jsdoc should look like in an api file
