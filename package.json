@@ -1,6 +1,6 @@
 {
   "name": "swag4k",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A swagger endpoint creater for koa apps",
   "main": "index.js",
   "scripts": {
