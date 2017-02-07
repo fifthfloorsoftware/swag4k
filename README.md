@@ -1,18 +1,16 @@
 #swag4k 
 
-swagger-for-koa creates a swagger endpoint for your api based on the description provided by your jsdocs
-swag4k will search through the files you provide for a @swagger title in your jsdocs which should be on the top of the 
-page you would like swaggerfide. It will then create path objects via the @resourcePath title and definition objects from the @definition title.
+swagger-for-koa creates a [swagger](http://swagger.io/) endpoint for your api based on the description provided by your jsdocs.
 
-In contrast to other swagger-koa implementations, swag4k does not force the user to have a ui bundled into your service, parses javadocs formatTed 
-in json(no yml!), is compatible with joi schemas, and will create a swagger v2 spec.  
+In contrast to other swagger-koa implementations, swag4k does not force the user to have a ui bundled into your service, parses javadocs formatted 
+in json(no .yml!), is compatible with [joi](https://github.com/hapijs/joi) schemas, creates a swagger [v2 spec](http://petstore.swagger.io/v2/swagger.json).  
 
 ##Usage
 ###inside koa configuration 
 
 ```javascript
 //example invocation of init function with example opts
-const swag4k = require('swagger-for-koa')
+const swag4k = require('swagger-4-koa')
   opts.info = {
     description: 'This is a sample server Petstore server. You can find out more about Swagger at [http://swagger.io](http://swagger.io) or on [irc.freenode.net, #swagger](http://swagger.io/irc/).  For this sample, you can use the api key `special-key` to test the authorization filters.',
     version: '1.0.0',
@@ -24,12 +22,14 @@ const swag4k = require('swagger-for-koa')
   opts.basePath = '/api/public/v1'
   opts.swaggerPath = '/swagger'
   opts.schemes = ['http', 'https']
-  opts.securityDefinitions = {} //see swagger documentation to construct this object properly
+  opts.securityDefinitions = {} 
   opts.externalDocs = {
                       description : "Find out more about Swagger",
                       url: "http://swagger.io"
                     } 
   opts.files = ['./api'] //files that contain swagger jsdocs
+  opts.addDefaults = true //adds default definitions contained in defaults file 
+  opts.joiDefinitions = ['./joi-schemas']
   const app = koa()
   swag4k.init(opts, app)  
 ```   
@@ -41,7 +41,7 @@ const swag4k = require('swagger-for-koa')
 const router = require('koa-router')
 
 
-//jsdoc with swagger title should be at top of any file you want swagger4k to find
+//jsdoc with @swagger title should be at top of any file you want swagger4k to find
 /**
  * @swagger
  * @name pet
@@ -200,9 +200,3 @@ function * deleteByStatus(next) {
  * }
  */
 ```
-
-###Compatible with joi-2-swagger 
-Include 'joiDefinitions' field mapped to array of joi schemas to add definitions using joi
-
-see http://petstore.swagger.io/v2/swagger.json for example of swagger json spec
-
