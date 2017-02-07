@@ -9,7 +9,7 @@ in json(no .yml!), is compatible with [joi](https://github.com/hapijs/joi) schem
 ###inside koa configuration 
 
 ```javascript
-//example invocation of init function with example opts
+//example invocation of init function with example opts; creates endpoint with path /api/public/v1/swagger
 const swag4k = require('swagger-4-koa')
   opts.info = {
     description: 'This is a sample server Petstore server. You can find out more about Swagger at [http://swagger.io](http://swagger.io) or on [irc.freenode.net, #swagger](http://swagger.io/irc/).  For this sample, you can use the api key `special-key` to test the authorization filters.',
@@ -23,13 +23,17 @@ const swag4k = require('swagger-4-koa')
   opts.swaggerPath = '/swagger'
   opts.schemes = ['http', 'https']
   opts.securityDefinitions = {} 
-  opts.externalDocs = {
-                      description : "Find out more about Swagger",
-                      url: "http://swagger.io"
-                    } 
   opts.files = ['./api'] //files that contain swagger jsdocs
   opts.addDefaults = true //adds default definitions contained in defaults file 
-  opts.joiDefinitions = ['./joi-schemas']
+  opts.joiDefinitions = [
+      Joi.object().keys({
+        id:      Joi.number().integer().positive().required(),
+        name:    Joi.string(),
+        email:   Joi.string().email().required(),
+        created: Joi.date().allow(null),
+        active:  Joi.boolean().default(true),
+      })
+  ]
   const app = koa()
   swag4k.init(opts, app)  
 ```   
