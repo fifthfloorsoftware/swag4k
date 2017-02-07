@@ -36,7 +36,7 @@ const swag4k = require('swagger-for-koa')
 
 ###inside router
 
-```javascript 1.6
+```javascript
 // example of what a jsdoc should look like in an api file
 const router = require('koa-router')
 
