@@ -1,6 +1,6 @@
 /**
  * @swagger
- * @name pet
+ * @name /pet
  * @description Everything about your pet
  * @externalDocs {"description" : "find out more", "url": "path/to/README.md"}
  */
