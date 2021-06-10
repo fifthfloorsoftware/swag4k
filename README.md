@@ -1,12 +1,12 @@
-#swag4k 
+# swag4k 
 
 swagger-for-koa creates a [swagger](http://swagger.io/) endpoint for your api based on the description provided by your jsdocs.
 
 In contrast to other swagger-koa implementations, swag4k does not force the user to have a ui bundled into your service, parses javadocs formatted 
 in json(no .yml!), is compatible with [joi](https://github.com/hapijs/joi) schemas, creates a swagger [v2 spec](http://petstore.swagger.io/v2/swagger.json).  
 
-##Usage
-###koa configuration 
+## Usage
+### koa configuration 
 
 ```javascript
 //example invocation of init function with example opts; creates endpoint with path /api/public/v1/swagger
@@ -38,7 +38,7 @@ const swag4k = require('swag4k')
   swag4k.init(opts, app)  
 ```   
 
-###Router configuration
+### Router configuration
 
 ```javascript
 // example of what a jsdoc should look like in an api file
